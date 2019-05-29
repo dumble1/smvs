@@ -634,7 +634,7 @@ main (int argc, char** argv)
                 view->get_byte_image(conf.image_embedding);
             mve::ByteImage::Ptr scld = input->duplicate();
             for (int i = 0; i < conf.input_scale; ++i)
-                scld = mve::image::rescale_half_size_gaussian<uint8_t>(scld);
+                scld = mve::image::rescale_half_size_subsample<uint8_t>(scld);
             view->set_image(scld, input_name);
             view->save_view();
         }));
